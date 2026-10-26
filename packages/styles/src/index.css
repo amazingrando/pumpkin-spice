@@ -1,0 +1,10 @@
+/**
+ * Pumpkin Spice stylesheet. Builds to dist/styles.css.
+ *
+ * Add each component's stylesheet from ./components here. Component styles
+ * use the psds-* class names and may use Tailwind `@apply` via
+ * `@reference "../tailwind.css"`; the build compiles them to plain CSS.
+ */
+
+@import '@pumpkin-spice/tokens/css';
+@import './base.css';

@@ -1,0 +1,12 @@
+/**
+ * Tailwind setup for authoring Pumpkin Spice styles. Reference only.
+ *
+ * Component styles pull this in with `@reference "../tailwind.css"`, which
+ * makes the theme and utilities available to `@apply` without emitting any
+ * CSS. The theme comes from @pumpkin-spice/tokens, so only Pumpkin Spice
+ * tokens exist as utilities. Never `@import` this file into shipped CSS: it
+ * would emit Tailwind's reset and utility classes.
+ */
+
+@import 'tailwindcss';
+@import '@pumpkin-spice/tokens/tailwind';

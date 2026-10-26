@@ -8,12 +8,8 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css"
+    ".": "./dist/index.js"
   },
-  "sideEffects": [
-    "*.css"
-  ],
   "scripts": {
     "build": "vite build"
   },
@@ -22,14 +18,13 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@pumpkin-spice/tokens": "0.0.0-development",
-    "lit": "^3.3.3"
+    "@pumpkin-spice/styles": "0.0.0-development",
+    "@pumpkin-spice/web-components": "0.0.0-development"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "sass": "^1.106.1",
     "vite": "^8.3.5"
   }
 }

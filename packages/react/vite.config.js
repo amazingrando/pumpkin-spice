@@ -8,7 +8,6 @@ export default defineConfig({
       entry: 'src/index.js',
       formats: ['es'],
       fileName: 'index',
-      cssFileName: 'style',
     },
     rollupOptions: {
       external: [/^react($|\/)/, /^react-dom($|\/)/, /^@pumpkin-spice\//, /^lit/],

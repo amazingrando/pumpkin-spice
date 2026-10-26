@@ -6,11 +6,10 @@ export default defineConfig({
       entry: 'src/index.js',
       formats: ['es'],
       fileName: 'index',
-      cssFileName: 'style',
     },
     rollupOptions: {
-      // Consumers install lit once; don't ship a second copy inside this bundle.
-      external: [/^lit/],
+      // Consumers install lit and the stylesheet once; don't bundle copies.
+      external: [/^lit/, /^@pumpkin-spice\//],
     },
   },
 });

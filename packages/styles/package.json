@@ -1,0 +1,29 @@
+{
+  "name": "@pumpkin-spice/styles",
+  "version": "0.0.0-development",
+  "description": "Pumpkin Spice shared CSS: tokens, base styles, and component styles authored with Tailwind and shipped as plain CSS.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": "./dist/styles.css",
+    "./tailwind.css": "./src/tailwind.css",
+    "./src/*": "./src/*"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "tailwindcss --input src/index.css --output dist/styles.css --minify"
+  },
+  "dependencies": {
+    "@pumpkin-spice/tokens": "0.0.0-development"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

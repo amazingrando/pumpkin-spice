@@ -12,6 +12,7 @@
     ".": "./dist/js/tokens.js",
     "./css": "./dist/css/tokens.css",
     "./scss": "./dist/scss/_tokens.scss",
+    "./tailwind": "./dist/tailwind/theme.css",
     "./json": "./dist/json/tokens.json",
     "./tokens/*": "./tokens/*"
   },

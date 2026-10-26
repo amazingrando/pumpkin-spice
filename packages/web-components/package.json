@@ -8,22 +8,19 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css"
+    ".": "./dist/index.js"
   },
   "sideEffects": [
-    "*.css",
     "./dist/index.js"
   ],
   "scripts": {
     "build": "vite build"
   },
   "dependencies": {
-    "@pumpkin-spice/tokens": "0.0.0-development",
+    "@pumpkin-spice/styles": "0.0.0-development",
     "lit": "^3.3.3"
   },
   "devDependencies": {
-    "sass": "^1.106.1",
     "vite": "^8.3.5"
   }
 }

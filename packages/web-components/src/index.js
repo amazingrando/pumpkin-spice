@@ -1,12 +1,13 @@
 /**
  * @file Entry point for @pumpkin-spice/web-components.
  *
- * Component source lives in the Emulsify system (src/components) so Drupal
- * and npm consumers run the same code. Importing this module registers every
- * <psds-*> element and bundles its CSS into dist/style.css.
+ * Importing this module registers every <psds-*> element. Elements are Lit
+ * components that render into the light DOM (createRenderRoot returns `this`)
+ * so the shared psds-* classes from @pumpkin-spice/styles apply. Load the
+ * stylesheet separately: `import '@pumpkin-spice/styles';`.
+ *
+ * Export each element here as it's added, for example:
+ *   export { PsdsButton } from './button/psds-button.js';
  */
 
-import '@pumpkin-spice/tokens/css';
-import '../../../src/components/disclosure/disclosure.scss';
-
-export { PsdsDisclosure } from '../../../src/components/disclosure/disclosure.js';
+export {};

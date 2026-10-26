@@ -1,0 +1,12 @@
+/**
+ * Minimal global defaults, built from the --psds-* tokens.
+ */
+
+body {
+  margin: 0;
+  background-color: var(--psds-color-surface-default);
+  color: var(--psds-color-text-default);
+  font-family: var(--psds-font-family-sans);
+  font-size: var(--psds-font-size-md);
+  line-height: var(--psds-font-line-height-normal);
+}
