@@ -13,7 +13,7 @@ const config = {
     '../stories/**/*.@(mdx|stories.@(js|jsx))',
     '../packages/*/src/**/*.@(mdx|stories.@(js|jsx))',
   ],
-  addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
+  addons: ['@storybook/addon-docs', '@storybook/addon-a11y', '@storybook/addon-themes'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
