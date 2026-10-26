@@ -13,7 +13,8 @@ Design tokens, Drupal components, React components, and web components that all 
 packages/tokens/tokens/*.json        Design tokens (W3C DTCG format), the source of truth
         │  npm run tokens (Style Dictionary)
         ├─▶ packages/tokens/dist/    CSS, Sass, JS, JSON for npm
-        └─▶ src/foundation/_tokens.scss   --psds-* custom properties for Emulsify/Drupal
+        ├─▶ src/foundation/_tokens.scss   --psds-* custom properties for Emulsify/Drupal
+        └─▶ src/foundation/_tailwind-theme.scss   Tailwind @theme mapped onto --psds-*
 
 src/components/<name>/               One folder per component (the Emulsify system)
   <name>.twig                        Drupal/Twig markup
@@ -27,6 +28,21 @@ packages/web-components/             npm bundle of the Lit elements from src/com
 ```
 
 **Shared CSS.** Every implementation renders the same markup with the same `psds-*` classes, and styles come only from the `--psds-*` token custom properties. Simple components such as Button are written once in Twig and once in React. Interactive components such as Disclosure get their behavior from a Lit element. That element renders into the light DOM, so the shared CSS applies, and Twig output works before JavaScript loads.
+
+**Tailwind.** Component styles are written with Tailwind v4 `@apply` on the `psds-*` classes:
+
+```scss
+@reference "../../foundation/_tailwind.scss";
+
+.psds-button--primary {
+  @apply bg-brand-primary text-text-on-brand hover:bg-brand-primary-hover;
+}
+```
+
+- **Output is plain CSS.** The build compiles it to ordinary CSS on the `psds-*` classes, so the npm packages ship plain CSS and their users don't need Tailwind. The markup has no utility classes.
+- **Only Pumpkin Spice tokens exist.** The theme in `_tailwind-theme.scss` is generated from the tokens, and Tailwind's default colors, radii, and type scale are cleared. Spacing utilities use `--psds-space-1` as the base unit, so `p-4` is `--psds-space-4`.
+- **Why `.scss` and PostCSS.** Tailwind runs as a PostCSS plugin (`config/emulsify-core/vite/plugins.mjs`), after Sass. Emulsify only builds `.scss` style files, which is why component styles stay `.scss` and the Tailwind files are Sass partials.
+- **Tailwind in your own app.** Apps that already use Tailwind can import `@pumpkin-spice/tokens/tailwind` after `@import "tailwindcss"` to get the same utilities for page layout.
 
 **Naming:**
 - `psds-` is the prefix for CSS classes, custom properties, and custom elements.
@@ -66,6 +82,13 @@ This copies the components into the theme's `src/components/` and the tokens int
 
 1. Attach the built `dist/global/foundation/css/foundation.css` globally in your theme's `*.libraries.yml`, so every component can read the `--psds-*` tokens.
 2. If you use components that ship a web component (such as `disclosure`), add `lit` to the theme's `package.json`.
+3. Set up Tailwind in the theme. Component source uses `@apply`, so the theme's Emulsify build has to run Tailwind:
+
+   ```bash
+   npm install -D tailwindcss @tailwindcss/postcss
+   ```
+
+   Then copy `config/emulsify-core/vite/plugins.mjs` from this repo, or merge its `extendConfig` into the theme's own.
 
 ## Adding a component
 

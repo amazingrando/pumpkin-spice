@@ -1,0 +1,10 @@
+/**
+ * Tailwind entry for authoring Pumpkin Spice component styles.
+ *
+ * Components pull this in with `@reference`, which makes the theme and
+ * utilities available to `@apply` without emitting any CSS. The theme comes
+ * from _tailwind-theme.scss, generated from the design tokens.
+ */
+
+@import 'tailwindcss';
+@import './_tailwind-theme.scss';
