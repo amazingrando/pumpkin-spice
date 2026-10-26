@@ -1,0 +1,48 @@
+{
+  "color": {
+    "$type": "color",
+    "palette": {
+      "pumpkin": {
+        "100": { "$value": "#fdebd9" },
+        "300": { "$value": "#f6b67a" },
+        "500": { "$value": "#e8772e" },
+        "700": { "$value": "#b4521a" },
+        "900": { "$value": "#6e2f0d" }
+      },
+      "cinnamon": {
+        "100": { "$value": "#f5e6dc" },
+        "500": { "$value": "#9c5a3c" },
+        "700": { "$value": "#6f3b25" }
+      },
+      "cream": {
+        "50": { "$value": "#fffaf3" },
+        "100": { "$value": "#f8efe2" }
+      },
+      "nutmeg": {
+        "300": { "$value": "#b8a596" },
+        "600": { "$value": "#6b5747" },
+        "900": { "$value": "#2b1f17" }
+      }
+    },
+    "brand": {
+      "primary": { "$value": "{color.palette.pumpkin.700}" },
+      "primary-hover": { "$value": "{color.palette.pumpkin.900}" },
+      "secondary": { "$value": "{color.palette.cinnamon.500}" }
+    },
+    "surface": {
+      "default": { "$value": "{color.palette.cream.50}" },
+      "subtle": { "$value": "{color.palette.cream.100}" }
+    },
+    "text": {
+      "default": { "$value": "{color.palette.nutmeg.900}" },
+      "muted": { "$value": "{color.palette.nutmeg.600}" },
+      "on-brand": { "$value": "#ffffff" }
+    },
+    "border": {
+      "default": { "$value": "{color.palette.nutmeg.300}" }
+    },
+    "focus": {
+      "ring": { "$value": "{color.palette.cinnamon.700}" }
+    }
+  }
+}

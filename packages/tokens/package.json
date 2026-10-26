@@ -1,0 +1,24 @@
+{
+  "name": "@pumpkin-spice/tokens",
+  "version": "0.0.0-development",
+  "description": "Pumpkin Spice design tokens as CSS custom properties, Sass, JavaScript, and JSON.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "tokens"
+  ],
+  "exports": {
+    ".": "./dist/js/tokens.js",
+    "./css": "./dist/css/tokens.css",
+    "./scss": "./dist/scss/_tokens.scss",
+    "./json": "./dist/json/tokens.json",
+    "./tokens/*": "./tokens/*"
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.7.1"
+  }
+}

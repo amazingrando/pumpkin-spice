@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Button component.
+ *
+ * Shares its markup contract with the React <Button> in packages/react:
+ * both render the same element and the same psds-button classes.
+ *
+ * Available variables:
+ * - text: Visible button label.
+ * - url: Optional URL. When present, renders an anchor.
+ * - variant: "primary" (default) or "secondary".
+ * - button_type: type attribute for <button> elements. Defaults to "button".
+ */
+#}
+{% set classes = [
+  'psds-button',
+  'psds-button--' ~ (variant|default('primary')),
+] %}
+
+{% if url %}
+  <a href="{{ url }}" class="{{ classes|join(' ') }}">{{ text }}</a>
+{% else %}
+  <button type="{{ button_type|default('button') }}" class="{{ classes|join(' ') }}">{{ text }}</button>
+{% endif %}

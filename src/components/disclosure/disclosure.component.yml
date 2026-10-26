@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Disclosure
+status: experimental
+description: A toggle button that shows and hides a panel, enhanced by the <psds-disclosure> web component.
+props:
+  type: object
+  required:
+    - summary
+  properties:
+    summary:
+      type: string
+      title: Summary
+      description: Text for the toggle button.
+    open:
+      type: boolean
+      title: Open
+      description: Whether the panel starts open.
+      default: false
+slots:
+  content:
+    title: Content
+    description: Panel content.
+# Emulsify Core builds disclosure.js as an ES module; load it as one.
+libraryOverrides:
+  js:
+    disclosure.js:
+      attributes:
+        type: module

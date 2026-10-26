@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Disclosure component.
+ *
+ * Server-rendered markup enhanced by the <psds-disclosure> web component in
+ * disclosure.js. Without JavaScript the panel stays visible.
+ *
+ * Available variables:
+ * - summary: Text for the toggle button.
+ * - content: Panel content.
+ * - open: Whether the panel starts open.
+ *
+ * Available blocks:
+ * - content: Override the panel content with custom markup.
+ */
+#}
+<psds-disclosure class="psds-disclosure"{{ open ? ' open' }}>
+  <button type="button" class="psds-disclosure__trigger" aria-expanded="{{ open ? 'true' : 'false' }}">
+    {{ summary }}
+  </button>
+  <div class="psds-disclosure__panel">
+    {% block content %}{{ content }}{% endblock %}
+  </div>
+</psds-disclosure>

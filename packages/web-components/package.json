@@ -1,0 +1,29 @@
+{
+  "name": "@pumpkin-spice/web-components",
+  "version": "0.0.0-development",
+  "description": "Pumpkin Spice web components built with Lit.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "*.css",
+    "./dist/index.js"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@pumpkin-spice/tokens": "0.0.0-development",
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "sass": "^1.106.1",
+    "vite": "^8.3.5"
+  }
+}

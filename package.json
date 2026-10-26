@@ -1,0 +1,49 @@
+{
+  "name": "pumpkin-spice-design-system",
+  "version": "0.0.0-development",
+  "private": true,
+  "description": "Pumpkin Spice Design System: design tokens, Drupal SDC Twig components, React components, and Lit web components built on one shared CSS layer.",
+  "keywords": [
+    "design system",
+    "design tokens",
+    "drupal",
+    "emulsify",
+    "lit",
+    "react",
+    "storybook",
+    "web components"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/amazingrando/pumpkin-spice",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amazingrando/pumpkin-spice.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.13"
+  },
+  "workspaces": [
+    "packages/tokens",
+    "packages/web-components",
+    "packages/react"
+  ],
+  "scripts": {
+    "tokens": "npm run build -w @pumpkin-spice/tokens",
+    "ensure-dist": "mkdir -p dist",
+    "build": "npm run tokens && npm run ensure-dist && vite build --config node_modules/@emulsify/core/config/vite/vite.config.js",
+    "build:packages": "npm run tokens && npm run build -w @pumpkin-spice/web-components -w @pumpkin-spice/react",
+    "vite": "vite build --watch --config node_modules/@emulsify/core/config/vite/vite.config.js",
+    "storybook": "NODE_OPTIONS=--no-deprecation storybook dev -c node_modules/@emulsify/core/.storybook --ci -p 6006",
+    "develop": "npm run tokens && npm run ensure-dist && concurrently --raw --no-shell npm:vite npm:storybook",
+    "storybook-build": "npm run build && storybook build -c node_modules/@emulsify/core/.storybook -o .out"
+  },
+  "dependencies": {
+    "@emulsify/core": "^4.5.0",
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}

@@ -1,0 +1,18 @@
+/**
+ * Pumpkin Spice foundation: design tokens plus minimal global defaults.
+ *
+ * Emulsify builds this to dist/global/foundation/css/foundation.css.
+ * Attach that file globally in your theme (for example, in the theme's
+ * libraries.yml) so every component can read the --psds-* custom properties.
+ */
+
+@use 'tokens';
+
+body {
+  margin: 0;
+  background-color: var(--psds-color-surface-default);
+  color: var(--psds-color-text-default);
+  font-family: var(--psds-font-family-sans);
+  font-size: var(--psds-font-size-md);
+  line-height: var(--psds-font-line-height-normal);
+}
