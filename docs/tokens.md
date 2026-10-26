@@ -1,10 +1,10 @@
 # Pumpkin Spice token spec
 
-Pumpkin Spice is a starter that gets re-themed per client, in the spirit of shadcn/ui. A client theme is a small brand file. Everything else is generated from it or maps onto it, so designs and components never change between clients.
+Pumpkin Spice is a starter that gets re-themed per client. A client theme is a small brand file. Everything else is generated from it or maps onto it, so designs and components never change between clients.
 
 ```text
 brand inputs ──▶ primitives (generated) ──▶ semantic tokens ──▶ section themes remap them
-  one file          color scales, type,         shadcn-style names    light · subtle · dark · brand · accent
+  one file          color scales, type,         role names            light · subtle · dark · brand · accent
   per client        radius, spacing             + extensions          (classes)
                                                                         │
                                                  component hooks ◀──────┘  (code only, never in Figma)
@@ -85,7 +85,7 @@ The type scale uses Tailwind's default values:
 
 ## 3. Semantic tokens
 
-Designs and components use only these. Names match shadcn/ui, so its components work unchanged.
+Designs and components use only these. Each surface color is paired with a `-foreground` color for text and icons on top of it.
 
 ### Colors (remapped by section themes)
 
@@ -95,14 +95,14 @@ Designs and components use only these. Names match shadcn/ui, so its components 
 | Containers | `card`, `card-foreground`, `popover`, `popover-foreground` |
 | Quiet | `muted`, `muted-foreground` |
 | Actions | `primary`, `primary-foreground`, `primary-hover`, `secondary`, `secondary-foreground`, `secondary-hover` |
-| Highlight | `accent`, `accent-foreground` (shadcn's hover/selected background, not the accent brand color) |
+| Highlight | `accent`, `accent-foreground` (hover/selected background for menu items and ghost buttons, not the accent brand color) |
 | Danger | `destructive`, `destructive-foreground`, `destructive-hover` |
 | Status | `success`, `warning`, `info`, each with `-foreground` |
 | Soft status | `destructive-subtle`, `success-subtle`, `warning-subtle`, `info-subtle`, each with `-foreground` |
 | Links | `link`, `link-hover` |
 | Lines | `border`, `border-strong`, `input`, `ring` |
 
-Not included: shadcn's `sidebar-*` and `chart-*` tokens. Add them when a project needs them.
+Not included: sidebar and chart tokens. Add them when a project needs them.
 
 ### Other semantic tokens (the same in every theme)
 
@@ -161,7 +161,7 @@ Classes remap the semantic colors for an element and everything inside it:
 | --- | --- |
 | `:root`, `.theme-light` | Default page |
 | `.theme-subtle` | Softly tinted band |
-| `.theme-dark`, `.dark` | Dark band. `.dark` keeps shadcn's `dark:` variant working inside it. |
+| `.theme-dark`, `.dark` | Dark band. Tailwind's `dark:` variant applies inside either class. |
 | `.theme-brand` | Brand-colored band |
 | `.theme-accent` | Accent-colored band |
 
@@ -188,8 +188,8 @@ Use `--{component}-{property}` custom properties only where the semantic layer c
 | `dist/js/tokens.js`, `dist/json/tokens.json` | Resolved values (hex) for scripts and docs |
 | `dist/figma/*.tokens.json` | W3C format (DTCG) with hex values: `primitives`, `base`, and one `semantic.<theme>` file per mode, with aliases to primitives |
 
-- **Naming:** semantic colors use shadcn names (`--primary`), primitive colors are named by scale (`--brand-600`), and non-color tokens use Tailwind's names (`--text-xl`, `--radius-md`).
-- **Prefix:** optional, and off by default. `npm run tokens -- --prefix=acme` emits `--acme-primary`, `--acme-brand-600`, and so on, and the Tailwind mapping follows. A prefix breaks shadcn's unmodified components, which expect `--primary`.
+- **Naming:** semantic colors use role names (`--primary`), primitive colors are named by scale (`--brand-600`), and non-color tokens use Tailwind's names (`--text-xl`, `--radius-md`).
+- **Prefix:** optional, and off by default. `npm run tokens -- --prefix=acme` emits `--acme-primary`, `--acme-brand-600`, and so on, and the Tailwind mapping follows. The prose styles in `@pumpkin-spice/styles` still expect unprefixed names.
 
 ## Figma
 
