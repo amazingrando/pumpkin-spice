@@ -50,26 +50,88 @@ function Scales() {
   );
 }
 
-function Semantic() {
-  const colors = tokens.themes.light;
+/** Semantic color groups, in the order of docs/tokens.md. */
+const SEMANTIC_GROUPS = {
+  Page: ['background', 'foreground'],
+  Containers: ['card', 'card-foreground', 'popover', 'popover-foreground'],
+  Quiet: ['muted', 'muted-foreground'],
+  Actions: [
+    'primary',
+    'primary-foreground',
+    'primary-hover',
+    'secondary',
+    'secondary-foreground',
+    'secondary-hover',
+  ],
+  Highlight: ['accent', 'accent-foreground'],
+  Danger: ['destructive', 'destructive-foreground', 'destructive-hover'],
+  Status: ['success', 'success-foreground', 'warning', 'warning-foreground', 'info', 'info-foreground'],
+  'Soft status': [
+    'destructive-subtle',
+    'destructive-subtle-foreground',
+    'success-subtle',
+    'success-subtle-foreground',
+    'warning-subtle',
+    'warning-subtle-foreground',
+    'info-subtle',
+    'info-subtle-foreground',
+  ],
+  Links: ['link', 'link-hover'],
+  Lines: ['border', 'border-strong', 'input', 'ring'],
+};
+
+/** The text color drawn on a surface swatch: its -foreground pair, if any. */
+function pairedForeground(name, colors) {
+  const base = name.replace(/-hover$/, '');
+  return colors[`${base}-foreground`] ? `var(--${base}-foreground)` : null;
+}
+
+function Semantic({ theme }) {
+  const colors = tokens.themes[theme] ?? tokens.themes.light;
+  const grouped = new Set(Object.values(SEMANTIC_GROUPS).flat());
+  // Anything new that isn't in a group yet still shows up for review.
+  const ungrouped = Object.keys(colors).filter((name) => !grouped.has(name));
+  const groups = Object.entries(SEMANTIC_GROUPS);
+  if (ungrouped.length) groups.push(['Other', ungrouped]);
+
   return (
-    <ul
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(11rem, 1fr))',
-        gap: 'calc(var(--spacing) * 4)',
-        padding: 0,
-        listStyle: 'none',
-      }}
-    >
-      {Object.entries(colors).map(([name, hex]) => (
-        <li key={name} className="text-sm">
-          <div style={{ ...swatch, background: `var(--${name})` }} />
-          <code>--{name}</code>
-          <div className="text-muted-foreground">{hex}</div>
-        </li>
+    <div style={{ display: 'grid', gap: 'calc(var(--spacing) * 8)' }}>
+      {groups.map(([group, names]) => (
+        <section key={group}>
+          <h3 className="text-lg font-semibold">{group}</h3>
+          <ul
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(11rem, 1fr))',
+              gap: 'calc(var(--spacing) * 4)',
+              padding: 0,
+              listStyle: 'none',
+            }}
+          >
+            {names.map((name) => {
+              const foreground = pairedForeground(name, colors);
+              return (
+                <li key={name} className="text-sm">
+                  <div
+                    style={{
+                      ...swatch,
+                      display: 'grid',
+                      placeItems: 'center',
+                      background: `var(--${name})`,
+                      color: foreground ?? undefined,
+                    }}
+                  >
+                    {foreground && <span className="text-lg font-semibold">Aa</span>}
+                  </div>
+                  <code>--{name}</code>
+                  <div className="text-muted-foreground">{colors[name]}</div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -80,4 +142,9 @@ export default {
 
 export const PrimitiveScales = { render: () => <Scales /> };
 
-export const SemanticColors = { render: () => <Semantic /> };
+/** Hex labels follow the toolbar's section theme, matching the swatches. */
+export const SemanticColors = {
+  render: (args, { globals, parameters }) => (
+    <Semantic theme={parameters.themes?.themeOverride ?? globals.theme ?? 'light'} />
+  ),
+};
