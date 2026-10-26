@@ -9,3 +9,5 @@ packages/*/dist/
 # Drupal SDC output that Emulsify Core mirrors from dist/components.
 # Component source lives in src/components.
 /components/
+
+debug-storybook.log
