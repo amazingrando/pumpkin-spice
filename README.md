@@ -4,7 +4,7 @@ Design tokens, React components, and Lit web components that share one CSS layer
 
 | Package | What it is |
 | --- | --- |
-| `@pumpkin-spice/tokens` | Design tokens as CSS custom properties, Sass, JS, JSON, and a Tailwind v4 theme |
+| `@pumpkin-spice/tokens` | Design tokens as CSS custom properties, JS, JSON, and a Tailwind v4 theme |
 | `@pumpkin-spice/styles` | The shared stylesheet: tokens, base styles, and component styles. Authored with Tailwind, shipped as plain CSS. |
 | `@pumpkin-spice/web-components` | Lit web components (`<psds-*>`) |
 | `@pumpkin-spice/react` | React components |

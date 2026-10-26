@@ -1,7 +1,7 @@
 {
   "name": "@pumpkin-spice/tokens",
   "version": "0.0.0-development",
-  "description": "Pumpkin Spice design tokens as CSS custom properties, Sass, JavaScript, and JSON.",
+  "description": "Pumpkin Spice design tokens as CSS custom properties, JavaScript, JSON, and a Tailwind v4 theme.",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -11,7 +11,6 @@
   "exports": {
     ".": "./dist/js/tokens.js",
     "./css": "./dist/css/tokens.css",
-    "./scss": "./dist/scss/_tokens.scss",
     "./tailwind": "./dist/tailwind/theme.css",
     "./json": "./dist/json/tokens.json",
     "./tokens/*": "./tokens/*"

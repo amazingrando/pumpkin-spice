@@ -77,12 +77,6 @@ const sd = new StyleDictionary({
       buildPath: 'dist/css/',
       files: [{ destination: 'tokens.css', format: 'css/variables' }],
     },
-    scss: {
-      transformGroup: 'scss',
-      prefix: 'psds',
-      buildPath: 'dist/scss/',
-      files: [{ destination: '_tokens.scss', format: 'scss/variables' }],
-    },
     js: {
       transformGroup: 'js',
       buildPath: 'dist/js/',
