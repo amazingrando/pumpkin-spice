@@ -1,4 +1,4 @@
-import '../../../../src/components/button/button.scss';
+import '../../../../src/components/button/button.css';
 
 /**
  * Button, or a link styled as a button when `url` is set.

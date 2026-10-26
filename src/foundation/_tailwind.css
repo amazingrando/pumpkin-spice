@@ -3,8 +3,9 @@
  *
  * Components pull this in with `@reference`, which makes the theme and
  * utilities available to `@apply` without emitting any CSS. The theme comes
- * from _tailwind-theme.scss, generated from the design tokens.
+ * from _tailwind-theme.css, generated from the design tokens. The leading
+ * underscore keeps Emulsify from compiling or copying this file on its own.
  */
 
 @import 'tailwindcss';
-@import './_tailwind-theme.scss';
+@import './_tailwind-theme.css';

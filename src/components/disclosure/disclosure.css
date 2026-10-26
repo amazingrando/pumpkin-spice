@@ -4,7 +4,7 @@
  * Authored with Tailwind utilities over the Pumpkin Spice theme.
  */
 
-@reference "../../foundation/_tailwind.scss";
+@reference "../../foundation/_tailwind.css";
 
 .psds-disclosure {
   @apply block rounded-md border border-border-default bg-surface-subtle;
@@ -17,7 +17,7 @@
   font: inherit;
   font-weight: var(--psds-font-weight-semibold);
 
-  // The +/− marker swaps on aria-expanded, which the web component manages.
+  /* The +/− marker swaps on aria-expanded, which the web component manages. */
   &::after {
     @apply text-lg leading-none;
 

@@ -4,5 +4,8 @@
     "name": "Pumpkin Spice",
     "machineName": "pumpkin_spice",
     "singleDirectoryComponents": true
+  },
+  "styles": {
+    "cssEntries": true
   }
 }

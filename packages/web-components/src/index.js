@@ -7,6 +7,6 @@
  */
 
 import '@pumpkin-spice/tokens/css';
-import '../../../src/components/disclosure/disclosure.scss';
+import '../../../src/components/disclosure/disclosure.css';
 
 export { PsdsDisclosure } from '../../../src/components/disclosure/disclosure.js';

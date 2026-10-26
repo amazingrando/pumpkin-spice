@@ -6,7 +6,7 @@
  * libraries.yml) so every component can read the --psds-* custom properties.
  */
 
-@use 'tokens';
+@import './_tokens.css';
 
 body {
   margin: 0;

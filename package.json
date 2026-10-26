@@ -39,11 +39,11 @@
     "storybook-build": "npm run build && storybook build -c node_modules/@emulsify/core/.storybook -o .out"
   },
   "dependencies": {
-    "@emulsify/core": "^4.5.0",
+    "@emulsify/core": "file:.local/emulsify-core-css-entries.tgz",
     "lit": "^3.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "tailwindcss": "^4.3.3"

@@ -1,9 +1,9 @@
-import tailwindcss from '@tailwindcss/postcss';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // Shared component .scss uses Tailwind @apply; compile it to plain CSS.
-  css: { postcss: { plugins: [tailwindcss()] } },
+  // Shared component .css uses Tailwind @apply; compile it to plain CSS.
+  plugins: [tailwindcss()],
   build: {
     lib: {
       entry: 'src/index.js',

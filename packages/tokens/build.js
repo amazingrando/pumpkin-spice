@@ -106,9 +106,9 @@ const sd = new StyleDictionary({
       transformGroup: 'css',
       prefix: 'psds',
       buildPath: '../../src/foundation/',
-      files: [{ destination: '_tailwind-theme.scss', format: 'tailwind/theme' }],
+      files: [{ destination: '_tailwind-theme.css', format: 'tailwind/theme' }],
     },
-    // Emulsify/Drupal: CSS custom properties written as a Sass partial in the
+    // Emulsify/Drupal: CSS custom properties written as a CSS partial in the
     // system's foundation directory, which `emulsify system install` copies.
     emulsify: {
       transformGroup: 'css',
@@ -116,7 +116,7 @@ const sd = new StyleDictionary({
       buildPath: '../../src/foundation/',
       files: [
         {
-          destination: '_tokens.scss',
+          destination: '_tokens.css',
           format: 'css/variables',
           options: { fileHeader: 'psdsGenerated' },
         },

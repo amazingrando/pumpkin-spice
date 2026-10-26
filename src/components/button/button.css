@@ -4,7 +4,7 @@
  * plain CSS on the psds-button classes.
  */
 
-@reference "../../foundation/_tailwind.scss";
+@reference "../../foundation/_tailwind.css";
 
 .psds-button {
   @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-transparent px-4 py-2 font-sans text-md leading-tight font-semibold no-underline;

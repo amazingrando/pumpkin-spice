@@ -11,3 +11,6 @@ packages/*/dist/
 /components/
 
 debug-storybook.log
+
+# Locally packed dependencies (e.g. the emulsify-core fork tarball)
+.local/

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../../../../src/components/disclosure/disclosure.js';
-import '../../../../src/components/disclosure/disclosure.scss';
+import '../../../../src/components/disclosure/disclosure.css';
 
 /**
  * Disclosure, rendered as the <psds-disclosure> web component.
