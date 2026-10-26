@@ -1,0 +1,14 @@
+/**
+ * Tailwind utilities for stories and docs pages only.
+ *
+ * Leaves out Tailwind's preflight reset so stories render like the shipped
+ * stylesheet. The token theme keeps utilities semantic (bg-primary, text-xl).
+ */
+
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@pumpkin-spice/tokens/tailwind';
+
+@source '../stories';
+@source '../packages/*/src';

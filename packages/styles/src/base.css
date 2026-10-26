@@ -1,12 +1,21 @@
 /**
- * Minimal global defaults, built from the --psds-* tokens.
+ * Minimal global defaults and section-theme surfaces.
+ *
+ * Section theme classes remap the semantic color tokens (see docs/tokens.md);
+ * these rules paint the section with its own background and text color.
  */
 
+@reference "./tailwind.css";
+
 body {
-  margin: 0;
-  background-color: var(--psds-color-surface-default);
-  color: var(--psds-color-text-default);
-  font-family: var(--psds-font-family-sans);
-  font-size: var(--psds-font-size-md);
-  line-height: var(--psds-font-line-height-normal);
+  @apply m-0 bg-background font-body text-base text-foreground;
+}
+
+.theme-light,
+.theme-subtle,
+.theme-dark,
+.dark,
+.theme-brand,
+.theme-accent {
+  @apply bg-background text-foreground;
 }

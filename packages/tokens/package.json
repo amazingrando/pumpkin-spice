@@ -1,24 +1,27 @@
 {
   "name": "@pumpkin-spice/tokens",
   "version": "0.0.0-development",
-  "description": "Pumpkin Spice design tokens as CSS custom properties, JavaScript, JSON, and a Tailwind v4 theme.",
+  "description": "Pumpkin Spice design tokens: generated color scales, section themes, and prose tokens as CSS custom properties, a Tailwind v4 theme, JSON/JS, and Figma (DTCG) files.",
   "license": "MIT",
   "type": "module",
   "files": [
     "dist",
-    "tokens"
+    "tokens",
+    "lib",
+    "build.js"
   ],
   "exports": {
     ".": "./dist/js/tokens.js",
     "./css": "./dist/css/tokens.css",
     "./tailwind": "./dist/tailwind/theme.css",
     "./json": "./dist/json/tokens.json",
+    "./figma/*": "./dist/figma/*",
     "./tokens/*": "./tokens/*"
   },
   "scripts": {
     "build": "node build.js"
   },
   "devDependencies": {
-    "style-dictionary": "^5.7.1"
+    "culori": "^4.0.2"
   }
 }

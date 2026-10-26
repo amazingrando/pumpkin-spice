@@ -1,0 +1,171 @@
+/**
+ * Prose: styles for rich text (CMS output, Markdown) inside `.prose`.
+ *
+ * Every value comes from the --prose-* tokens (docs/tokens.md), which point at
+ * the type scale and the section theme's colors. Selectors use :where() so
+ * component classes inside prose win without specificity fights.
+ */
+
+.prose {
+  color: var(--prose-body);
+  font-family: var(--prose-p-font);
+  font-size: var(--prose-p-size);
+  line-height: var(--prose-p-leading);
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--prose-heading);
+}
+
+.prose :where(h1) {
+  margin-block: var(--prose-h1-space-before) var(--prose-h1-space-after);
+  font-family: var(--prose-h1-font);
+  font-size: var(--prose-h1-size);
+  font-weight: var(--prose-h1-weight);
+  line-height: var(--prose-h1-leading);
+  letter-spacing: var(--prose-h1-tracking);
+}
+
+.prose :where(h2) {
+  margin-block: var(--prose-h2-space-before) var(--prose-h2-space-after);
+  font-family: var(--prose-h2-font);
+  font-size: var(--prose-h2-size);
+  font-weight: var(--prose-h2-weight);
+  line-height: var(--prose-h2-leading);
+  letter-spacing: var(--prose-h2-tracking);
+}
+
+.prose :where(h3) {
+  margin-block: var(--prose-h3-space-before) var(--prose-h3-space-after);
+  font-family: var(--prose-h3-font);
+  font-size: var(--prose-h3-size);
+  font-weight: var(--prose-h3-weight);
+  line-height: var(--prose-h3-leading);
+  letter-spacing: var(--prose-h3-tracking);
+}
+
+.prose :where(h4) {
+  margin-block: var(--prose-h4-space-before) var(--prose-h4-space-after);
+  font-family: var(--prose-h4-font);
+  font-size: var(--prose-h4-size);
+  font-weight: var(--prose-h4-weight);
+  line-height: var(--prose-h4-leading);
+  letter-spacing: var(--prose-h4-tracking);
+}
+
+.prose :where(h5) {
+  margin-block: var(--prose-h5-space-before) var(--prose-h5-space-after);
+  font-family: var(--prose-h5-font);
+  font-size: var(--prose-h5-size);
+  font-weight: var(--prose-h5-weight);
+  line-height: var(--prose-h5-leading);
+  letter-spacing: var(--prose-h5-tracking);
+}
+
+.prose :where(h6) {
+  margin-block: var(--prose-h6-space-before) var(--prose-h6-space-after);
+  font-family: var(--prose-h6-font);
+  font-size: var(--prose-h6-size);
+  font-weight: var(--prose-h6-weight);
+  line-height: var(--prose-h6-leading);
+  letter-spacing: var(--prose-h6-tracking);
+}
+
+.prose :where(p) {
+  margin-block: var(--prose-p-space-before) var(--prose-p-space-after);
+}
+
+.prose :where(.lead) {
+  margin-block: var(--prose-lead-space-before) var(--prose-lead-space-after);
+  color: var(--prose-muted);
+  font-family: var(--prose-lead-font);
+  font-size: var(--prose-lead-size);
+  line-height: var(--prose-lead-leading);
+}
+
+.prose :where(small) {
+  font-size: var(--prose-small-size);
+  line-height: var(--prose-small-leading);
+}
+
+.prose :where(a) {
+  color: var(--prose-link);
+  text-decoration-line: underline;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    color: var(--prose-link-hover);
+  }
+}
+
+.prose :where(strong) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose :where(blockquote) {
+  margin-block: var(--prose-blockquote-space-before) var(--prose-blockquote-space-after);
+  margin-inline: 0;
+  padding-inline-start: calc(var(--spacing) * 4);
+  border-inline-start: 0.25rem solid var(--prose-quote-border);
+  font-size: var(--prose-blockquote-size);
+  line-height: var(--prose-blockquote-leading);
+  font-style: italic;
+}
+
+.prose :where(ul, ol) {
+  margin-block: var(--prose-list-space-before) var(--prose-list-space-after);
+  padding-inline-start: var(--prose-list-indent);
+  line-height: var(--prose-list-leading);
+}
+
+.prose :where(li + li) {
+  margin-block-start: var(--prose-list-item-gap);
+}
+
+.prose :where(li)::marker {
+  color: var(--prose-marker);
+}
+
+.prose :where(code) {
+  font-family: var(--prose-code-font);
+  font-size: var(--prose-code-size);
+  font-weight: var(--prose-code-weight);
+}
+
+.prose :where(:not(pre) > code) {
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
+  background-color: var(--prose-code-bg);
+}
+
+.prose :where(pre) {
+  margin-block: var(--prose-pre-space-before) var(--prose-pre-space-after);
+  padding: calc(var(--spacing) * 4);
+  overflow-x: auto;
+  border-radius: var(--radius-container);
+  background-color: var(--prose-pre-bg);
+  font-family: var(--prose-pre-font);
+  font-size: var(--prose-pre-size);
+  line-height: var(--prose-pre-leading);
+}
+
+.prose :where(figcaption) {
+  margin-block: var(--prose-figcaption-space-before) var(--prose-figcaption-space-after);
+  color: var(--prose-muted);
+  font-size: var(--prose-figcaption-size);
+  line-height: var(--prose-figcaption-leading);
+}
+
+.prose :where(hr) {
+  margin-block: var(--prose-hr-space-before) var(--prose-hr-space-after);
+  border: 0;
+  border-block-start: 1px solid var(--border);
+}
+
+.prose :where(:first-child) {
+  margin-block-start: 0;
+}
+
+.prose :where(:last-child) {
+  margin-block-end: 0;
+}

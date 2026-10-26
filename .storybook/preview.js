@@ -6,6 +6,7 @@
  */
 
 import '../packages/styles/src/index.css';
+import './storybook.css';
 
 /** @type {import('@storybook/react-vite').Preview} */
 const preview = {

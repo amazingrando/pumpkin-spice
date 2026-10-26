@@ -4,7 +4,7 @@ Design tokens, React components, and Lit web components that share one CSS layer
 
 | Package | What it is |
 | --- | --- |
-| `@pumpkin-spice/tokens` | Design tokens as CSS custom properties, JS, JSON, and a Tailwind v4 theme |
+| `@pumpkin-spice/tokens` | Design tokens generated from a client brand file: CSS custom properties, section themes, a Tailwind v4 theme, JSON/JS, and Figma (DTCG) files |
 | `@pumpkin-spice/styles` | The shared stylesheet: tokens, base styles, and component styles. Authored with Tailwind, shipped as plain CSS. |
 | `@pumpkin-spice/web-components` | Lit web components (`<psds-*>`) |
 | `@pumpkin-spice/react` | React components |
@@ -12,20 +12,26 @@ Design tokens, React components, and Lit web components that share one CSS layer
 ## How it fits together
 
 ```text
-packages/tokens/tokens/*.json      Design tokens (W3C DTCG format), the source of truth
-        │  Style Dictionary
-        ├─▶ dist/css/tokens.css    --psds-* custom properties
-        └─▶ dist/tailwind/theme.css   Tailwind @theme mapped onto --psds-*
+packages/tokens/tokens/
+  brand/<client>.json              The client brand kit: colors, fonts, radius, spacing
+  base/, themes/                   Non-color tokens, prose, and section-theme mappings
+        │  npm run tokens -- --brand=<client> [--prefix=acme]
+        ├─▶ dist/css/tokens.css    Primitives, semantic tokens, section themes, prose
+        ├─▶ dist/tailwind/theme.css   Semantic Tailwind theme (bg-primary, text-xl, rounded-control)
+        └─▶ dist/json, dist/js, dist/figma   Resolved values and Figma import files
 
 packages/styles/src/
   tailwind.css                     Tailwind + token theme, for @reference only
-  base.css                         Global defaults
+  base.css                         Global defaults and section-theme surfaces
+  prose.css                        Rich text inside .prose
   components/<name>.css            Component styles on psds-* classes
   index.css                        Builds to dist/styles.css
 
 packages/web-components/src/       Lit elements, light DOM, styled by psds-* classes
 packages/react/src/                React components, same markup and classes
 ```
+
+**Tokens.** Primitives are generated from the brand kit, semantic tokens use shadcn/ui names, and section themes (`.theme-light`, `-subtle`, `-dark`, `-brand`, `-accent`) remap them. The build fails if any semantic pair misses its contrast target. The full spec is in [docs/tokens.md](docs/tokens.md).
 
 **Shared CSS.** React and web components render the same markup with the same `psds-*` classes, and all styling lives in `@pumpkin-spice/styles`. Web components render into the light DOM (`createRenderRoot() { return this; }`) so the shared CSS applies to them. React components can wrap the matching `<psds-*>` element for interactive behavior; React 19 passes props to custom elements as properties.
 
@@ -36,12 +42,12 @@ packages/react/src/                React components, same markup and classes
 @reference "../tailwind.css";
 
 .psds-button--primary {
-  @apply bg-brand-primary text-text-on-brand hover:bg-brand-primary-hover;
+  @apply bg-primary text-primary-foreground hover:bg-primary-hover;
 }
 ```
 
 - **Output is plain CSS.** The build compiles everything to `dist/styles.css`, so users of the packages don't need Tailwind, and the markup has no utility classes.
-- **Only Pumpkin Spice tokens exist.** Tailwind's default colors, radii, and type scale are cleared. Spacing uses `--psds-space-1` as the base unit, so `p-4` is `--psds-space-4`.
+- **Only Pumpkin Spice tokens exist.** Tailwind's default colors, fonts, type scale, radii, and shadows are cleared, so utilities are semantic: `bg-primary`, `text-muted-foreground`, `rounded-control`. Spacing uses the brand kit's `spacing` unit, so `p-4` is 4 units.
 - **Tailwind in your own app.** Apps that already use Tailwind can `@import "@pumpkin-spice/tokens/tailwind"` after `@import "tailwindcss"` to get the same utilities.
 
 **Naming:** `psds-` prefixes CSS classes, custom properties, and custom elements. The npm scope is `@pumpkin-spice`.

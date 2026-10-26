@@ -1,0 +1,208 @@
+{
+  "$description": "Default page theme. Applies to :root and .theme-light.",
+  "color": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.white}"
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
+    },
+    "card": {
+      "$type": "color",
+      "$value": "{color.white}"
+    },
+    "card-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
+    },
+    "popover": {
+      "$type": "color",
+      "$value": "{color.white}"
+    },
+    "popover-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "{color.neutral.100}"
+    },
+    "muted-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.700}"
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{color.brand-solid}"
+    },
+    "primary-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "primary",
+          "primary-hover"
+        ],
+        "min": 4.5
+      }
+    },
+    "primary-hover": {
+      "$type": "color",
+      "$value": "{color.brand-solid-hover}"
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{color.neutral.100}"
+    },
+    "secondary-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.900}"
+    },
+    "secondary-hover": {
+      "$type": "color",
+      "$value": "{color.neutral.200}"
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{color.neutral.100}"
+    },
+    "accent-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.900}"
+    },
+    "destructive": {
+      "$type": "color",
+      "$value": "{color.red.600}"
+    },
+    "destructive-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "destructive",
+          "destructive-hover"
+        ],
+        "min": 4.5
+      }
+    },
+    "destructive-hover": {
+      "$type": "color",
+      "$value": "{color.red.700}"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{color.green.600}"
+    },
+    "success-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "success"
+        ],
+        "min": 4.5
+      }
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "{color.amber.500}"
+    },
+    "warning-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "warning"
+        ],
+        "min": 4.5
+      }
+    },
+    "info": {
+      "$type": "color",
+      "$value": "{color.blue.600}"
+    },
+    "info-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "info"
+        ],
+        "min": 4.5
+      }
+    },
+    "destructive-subtle": {
+      "$type": "color",
+      "$value": "{color.red.50}"
+    },
+    "destructive-subtle-foreground": {
+      "$type": "color",
+      "$value": "{color.red.800}"
+    },
+    "success-subtle": {
+      "$type": "color",
+      "$value": "{color.green.50}"
+    },
+    "success-subtle-foreground": {
+      "$type": "color",
+      "$value": "{color.green.800}"
+    },
+    "warning-subtle": {
+      "$type": "color",
+      "$value": "{color.amber.50}"
+    },
+    "warning-subtle-foreground": {
+      "$type": "color",
+      "$value": "{color.amber.800}"
+    },
+    "info-subtle": {
+      "$type": "color",
+      "$value": "{color.blue.50}"
+    },
+    "info-subtle-foreground": {
+      "$type": "color",
+      "$value": "{color.blue.800}"
+    },
+    "link": {
+      "$type": "color",
+      "$value": "{color.brand.700}"
+    },
+    "link-hover": {
+      "$type": "color",
+      "$value": "{color.brand.800}"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.neutral.200}"
+    },
+    "border-strong": {
+      "$type": "color",
+      "$value": "{color.neutral.500}"
+    },
+    "input": {
+      "$type": "color",
+      "$value": "{color.neutral.500}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{color.brand-solid}"
+    }
+  }
+}

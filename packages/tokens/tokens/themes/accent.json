@@ -1,0 +1,203 @@
+{
+  "$description": "Accent-colored band. Applies to .theme-accent. Status colors inherit from the surrounding theme.",
+  "color": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.accent-solid}"
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 4.5
+      }
+    },
+    "card": {
+      "$type": "color",
+      "$value": "{color.accent-solid-hover}"
+    },
+    "card-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "card"
+        ],
+        "min": 4.5
+      }
+    },
+    "popover": {
+      "$type": "color",
+      "$value": "{color.white}"
+    },
+    "popover-foreground": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "{color.accent-solid-hover}"
+    },
+    "muted-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.accent.100}",
+          "{color.accent.50}",
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background",
+          "muted"
+        ],
+        "min": 4.5
+      }
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{color.white}"
+    },
+    "primary-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.accent-solid-hover}",
+          "{color.accent.800}",
+          "{color.accent.900}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "primary",
+          "primary-hover"
+        ],
+        "min": 4.5
+      }
+    },
+    "primary-hover": {
+      "$type": "color",
+      "$value": "{color.accent.50}"
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{color.accent-solid-hover}"
+    },
+    "secondary-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "secondary",
+          "secondary-hover"
+        ],
+        "min": 4.5
+      }
+    },
+    "secondary-hover": {
+      "$type": "color",
+      "$value": "{color.accent.800}"
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{color.accent-solid-hover}"
+    },
+    "accent-foreground": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "accent"
+        ],
+        "min": 4.5
+      }
+    },
+    "link": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 4.5
+      }
+    },
+    "link-hover": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 4.5
+      }
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.accent-solid-hover}"
+    },
+    "border-strong": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.accent.100}",
+          "{color.accent.50}",
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 3
+      }
+    },
+    "input": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.accent.100}",
+          "{color.accent.50}",
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 3
+      }
+    },
+    "ring": {
+      "$type": "color",
+      "$value": {
+        "pick": [
+          "{color.white}",
+          "{color.neutral.950}"
+        ],
+        "against": [
+          "background"
+        ],
+        "min": 3
+      }
+    }
+  }
+}
