@@ -31,7 +31,7 @@ packages/web-components/src/       Lit elements, light DOM, styled by psds-* cla
 packages/react/src/                React components, same markup and classes
 ```
 
-**Tokens.** Primitives are generated from the brand kit, semantic tokens use shadcn/ui names, and section themes (`.theme-light`, `-subtle`, `-dark`, `-brand`, `-accent`) remap them. The build fails if any semantic pair misses its contrast target. The full spec is in [docs/tokens.md](docs/tokens.md).
+**Tokens.** Primitives are generated from the brand kit, semantic tokens pair each surface with a `-foreground` text color (`primary` / `primary-foreground`), and section themes (`.theme-light`, `-subtle`, `-dark`, `-brand`, `-accent`) remap them. The build fails if any semantic pair misses its contrast target. The full spec is in [docs/tokens.md](docs/tokens.md).
 
 **Shared CSS.** React and web components render the same markup with the same `psds-*` classes, and all styling lives in `@pumpkin-spice/styles`. Web components render into the light DOM (`createRenderRoot() { return this; }`) so the shared CSS applies to them. React components can wrap the matching `<psds-*>` element for interactive behavior; React 19 passes props to custom elements as properties.
 
